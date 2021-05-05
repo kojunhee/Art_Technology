@@ -8,6 +8,32 @@ PImage  imageGun = new PImage() ;
 float gun_x = 0;
 float gun_y = 0;
 int x,y;
+boolean[] moveKeys = new boolean[4];
+
+void setMovement(int k, boolean b) {
+  switch (k) {
+  case 'w':
+    moveKeys[0] = b;
+    break;
+  case 'a':
+    moveKeys[1] = b;
+    break;
+  case 's':
+    moveKeys[2] = b;
+    break;
+  case 'd':
+    moveKeys[3] = b;
+    break;
+  }
+}
+
+void keyPressed() {
+  setMovement(key, true);
+}
+
+void keyReleased() {
+  setMovement(key, false);
+}
 
 void setup() 
 {
@@ -31,20 +57,20 @@ void draw()
   
   
   if(keyPressed ==true){
-      if (key == 'a')
+      if (moveKeys[1] == true)
       {
         x-=10;    if(x<0) x=0;
       }
-      else if (key == 'd') 
+      if (moveKeys[3] == true) 
       {
          x+=10;
          if(x>WIDTH-30) x=WIDTH-30;
       }
-      else if (key == 'w') 
+      if (moveKeys[0] == true) 
       {
         y-=10;    if(y<0) y=0;
       }
-      else if (key == 's') 
+      if (moveKeys[2] == true) 
       {
          y+=10; 
          if(y>HEIGHT-30) y = HEIGHT-30;
