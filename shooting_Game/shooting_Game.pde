@@ -18,7 +18,7 @@ void setup() {
   size(800, 600); 
   //size(showWidth,showHeight);
   player = new Player(width/2, height/2, 50);
-    
+  allBCK.add(new Rectangle4(100, 100, 1));
 }
 
 
@@ -49,8 +49,7 @@ void draw( ) {
       drawSCORE();
     }
     else{
-      rect(100,100,120,120);
-      
+      drawAllBlk();
     }
   } else if (GameJudge!=true) {
     GameOver();
