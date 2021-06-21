@@ -136,7 +136,7 @@ void draw( ) {
 void addBLK() {
   float x, y;
   int RecHP = 40;
-  int TriHP = 20;
+  int TriHP = 30;
   int PenHP = 60;
   int HexHP = 80;
   if(GAME_MODE==1){

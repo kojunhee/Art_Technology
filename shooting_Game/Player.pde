@@ -1,6 +1,6 @@
 AudioPlayer gun;
 abstract class Base {
-  protected float x, y;
+  public float x, y;
   protected int r;
   protected float angle;
   //protected ArrayList<Tama> Tamas;
@@ -8,7 +8,7 @@ abstract class Base {
   abstract void show();
   abstract void move();
 }
-
+int ini_HP=100;
 class Player extends Base {
 
   boolean leftKeyDown, rightKeyDown, upKeyDown, downKeyDown;
@@ -24,7 +24,9 @@ class Player extends Base {
   int test = 0;
   boolean isBack = true;
   boolean flag = true;
-
+  
+  
+  
   Player(float x, float y, int r, int hp, int type) {
     this.x = x;
     this.y = y;
@@ -40,19 +42,34 @@ class Player extends Base {
     stroke(93);
     strokeWeight(3);
     pushMatrix();
-
     translate(x, y);
     
     if(type==1){
+      
+      pushMatrix();
       rotate(angle);
       fill(BATTERY_COLOR);
       rect(test, 0-r/4, r, r/2, 1);
       fill(FILL_COLOR);
       ellipse(0, 0, r, r);
+      popMatrix();
+      
+      pushMatrix();
+      strokeWeight(10);
+      stroke(255);
+      line(0, 0, 0+50, 0);
+      stroke(255,0,0);
+      int position = int(map(this.HP, 0, ini_HP, 0, 0+50));
+      line(0, 0, position, 0);
+      popMatrix();
     }
     else{
+      
+      pushMatrix();
       tint(FILL_COLOR);
       image(p2,0,0,r,r);
+      popMatrix();
+      
     }
     popMatrix();
 
