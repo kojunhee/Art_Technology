@@ -84,7 +84,11 @@ class Triangle3 extends Block {
 
     translate(x, y);
     rotate(angle);
-    triangle(WIDTH+cos(0), WIDTH*sin(0), WIDTH*cos(TWO_PI/3), WIDTH*sin(TWO_PI/3), WIDTH*cos(TWO_PI/3*2), WIDTH*sin(TWO_PI/3*2));
+    
+    pushMatrix();
+    tint(255);
+    image(pika,-25,-25,50,50);
+    popMatrix();
 
     popMatrix();
     

@@ -1,13 +1,13 @@
 import ddf.minim.*;
 
 PImage p2;
+PImage pika;
 
 
 Minim minim;
 AudioPlayer music;
 AudioMetaData meta;
 
- 
 final color BCK_COLOR = color(130,210,50);  
 final color LINE_COLOR = color(189);   
 final int GRID_SPACE = 25;  
@@ -33,6 +33,8 @@ void setup() {
   player2 = new Player(width/2+30, height/2, 50, 1000, 2);
   
   p2 = loadImage("player2.png");
+  pika = loadImage("pika.png");
+  
   minim = new Minim(this);
   music = minim.loadFile("whatdoicallyou.mp3", 2048);
   meta = music.getMetaData();
@@ -165,18 +167,14 @@ void addBLK() {
     switch(STAGE_NUM){
       case 1:
         allBCK.add(new Triangle3 (100, 100, TriHP));
-        allBCK.add(new Triangle3 (100, 300, TriHP));
-        allBCK.add(new Triangle3 (100, 500, TriHP));
-        allBCK.add(new Triangle3 (600, 100, TriHP));
-        allBCK.add(new Triangle3 (600, 300, TriHP));
         allBCK.add(new Triangle3 (600, 500, TriHP));
         break;
       case 2: 
         allBCK.add(new Pentagon5 (100, 100, PenHP));
-        allBCK.add(new Pentagon5 (100, 300, PenHP));
+        
         allBCK.add(new Pentagon5 (100, 500, PenHP));
         allBCK.add(new Pentagon5 (600, 100, PenHP));
-        allBCK.add(new Pentagon5 (600, 300, PenHP));
+       
         allBCK.add(new Pentagon5 (600, 500, PenHP));
         break;
       case 3: 
@@ -226,6 +224,13 @@ boolean CheckMan3( float Tamax, float Tamay, float playerX, float playerY) { //B
   SankakuX = abs(Tamax - playerX);
   SankakuY = abs(Tamay - playerY); 
   SankakuR = 30; //Block size touituka(30/2), Player Hankei sansyou
+  return ( sqrt( sq(SankakuX) + sq(SankakuY) ) < SankakuR );
+}
+boolean CheckMan4( float Tamax, float Tamay, float playerX, float playerY) { //Block&Player
+  float SankakuX, SankakuY, SankakuR;
+  SankakuX = abs(Tamax - playerX);
+  SankakuY = abs(Tamay - playerY); 
+  SankakuR = 50; //Block size touituka(30/2), Player Hankei sansyou
   return ( sqrt( sq(SankakuX) + sq(SankakuY) ) < SankakuR );
 }
 

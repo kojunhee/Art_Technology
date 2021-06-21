@@ -64,7 +64,7 @@ class Tama {
       
       Plx=player2.x;
       Ply=player2.y;
-      if ( CheckMan3(Bux, Buy, Plx+30, Ply+30)) {
+      if ( CheckMan4(Bux, Buy, Plx+30, Ply+30)) {
         Tamas.remove(i);
       }
     }

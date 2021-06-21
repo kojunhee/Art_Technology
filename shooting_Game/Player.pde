@@ -75,7 +75,7 @@ class Player extends Base {
 
     updateAngle();
     move();
-    lvlUP();
+    //lvlUP();
     HitCheck();
     if (mousePressed && mouseButton == LEFT && player.timeCheck > player.reloadTime) {
       player.shot();
@@ -109,7 +109,7 @@ class Player extends Base {
         println("Level UP"); 
         movementSpeed +=1;
         bulletSpeed +=3;    
-        reloadTime -= 10;
+        reloadTime -= 5;
         Damage+=20;
 
         lvlUPdraw4();
@@ -119,14 +119,14 @@ class Player extends Base {
       if (!flag) {
         movementSpeed +=1;
         bulletSpeed += 3;    
-        reloadTime -=10;
+        reloadTime -=5;
 
         lvlUPdraw3();
         flag=true;
       }
     } else if (SCORE==50) {
       if (flag) {
-        reloadTime-=10;
+        reloadTime-=5;
 
         lvlUPdraw2();
         flag=false;
