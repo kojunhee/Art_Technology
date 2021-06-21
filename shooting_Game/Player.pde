@@ -10,26 +10,28 @@ abstract class Base {
 
 class Player extends Base {
 
-  boolean leftKeyDown, rightKeyDown, upKeyDown, downKeyDown;
+
   final color FILL_COLOR = color(0, 178, 225);  
   final color BATTERY_COLOR = color(153); 
-  int HP;
-  int movementSpeed = 4;  
+  int movementSpeed = 2;  
   int bulletSpeed = 5;    
-  int reloadTime = 30;    
+  int reloadTime = 60;    
   int timeCheck = 60;  //time after shot
-  int Damage =20; 
+  int Damage =20;
+
+
+  Player(float x, float y, int r) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+    //this.Tamas = new ArrayList<Tama>();
+  }
+
+
   int test = 0;
   boolean isBack = true;
   boolean flag = true;
 
-  Player(float x, float y, int r, int hp) {
-    this.x = x;
-    this.y = y;
-    this.r = r;
-    this.HP = hp;
-    //this.Tamas = new ArrayList<Tama>();
-  }
 
   void show() {
     drawTamas();
@@ -60,7 +62,7 @@ class Player extends Base {
   }
 
   void shot() {
-    Tamas.add(new Tama(x+30*cos(angle), y+30*sin(angle), bulletSpeed, angle, FILL_COLOR, Damage));
+    Tamas.add(new Tama(x, y, bulletSpeed, angle, FILL_COLOR, Damage));
     timeCheck = 0;
   }
 
@@ -171,15 +173,15 @@ class Player extends Base {
     }
   }
   private void HitCheck() {
-    float Plx, Ply, Tamax, Tamay;
+    float Plx, Ply, Blx, Bly;
     Plx=x;
     Ply=y;
     //println(Plx, Ply);
-    for (int j=0; j<Tamas.size(); j++) {
-      Tama tempBlock =Tamas.get(j);
-      Tamax=tempBlock.x;
-      Tamay=tempBlock.y;
-      if ( CheckMan3(Tamax, Tamay, Plx, Ply)) {
+    for (int j=0; j<allBCK.size(); j++) {
+      Block tempBlock =(Block)allBCK.get(j);
+      Blx=tempBlock.x;
+      Bly=tempBlock.y;
+      if ( CheckMan2(Plx, Ply, Blx, Bly)) {
         GameJudge=false;
       }
     }

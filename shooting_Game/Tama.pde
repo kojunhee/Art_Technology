@@ -30,7 +30,7 @@ class Tama {
     y += speedY;
   }
   private void HitCheck() {
-    float Bux, Buy, Blx, Bly, Plx, Ply;
+    float Bux, Buy, Blx, Bly;
     int health;
     for (int i=0; i<Tamas.size(); i++) {
       Tama temp = (Tama)Tamas.get(i);
@@ -53,19 +53,9 @@ class Tama {
           }
         }
       }
-        Plx=player2.x;
-        Ply=player2.y;
-        health=player2.HP;
-        if ( CheckMan3(Bux, Buy,Plx,Ply)) {
-          player2.HP= player2.HP-Dam;
-          Tamas.remove(i);
-          if (health<=0) 
-          GameOver();
-            //println("BlockNumber: "+allBCK.size());
-            //println("TamaNumber: "+Tamas.size());
-          }
-        }
-      }
+    }
+  }
+
   boolean isExist() {
     if (life < 0) {
       return false;

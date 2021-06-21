@@ -7,7 +7,8 @@ final int EXIST_TIME = 60*3;
 int STAGE_NUM = 0;
 int MAX_BLK = 0;  
 int SCORE = 0;
-int GAME_STYLE = 2;
+int GAME_MODE = 2;
+boolean GAME_START = false;
 boolean GameJudge = true;
 ArrayList<Block> allBCK = new ArrayList<Block>();
 Player player; 
@@ -16,12 +17,13 @@ Player player;
 void setup() {
   size(800, 600); 
   //size(showWidth,showHeight);
-  player = new Player(width/2, height/2, 30);
+  player = new Player(width/2, height/2, 50);
     
 }
 
 
 void draw( ) {
+  
   if (GameJudge==true) {
     
     if(allBCK.size()==0){
@@ -29,26 +31,27 @@ void draw( ) {
       player.y = height/2;
       STAGE_NUM++;
       MAX_BLK++;
-      if(GAME_STYLE==1){
+      if(GAME_MODE==1){
         for(int i =0; i< MAX_BLK;i++) {
             addBLK();
         }
       }
-      else if(GAME_STYLE==2){
+      else if(GAME_MODE==2){
         addBLK();
       }
     }
     
     
     drawBG();
-    drawPlayer();
-    
-    
-    
-    
-    drawAllBlk();
- 
-    drawSCORE();
+    drawPlayer();  
+    if(GAME_START){
+      drawAllBlk();
+      drawSCORE();
+    }
+    else{
+      rect(100,100,120,120);
+      
+    }
   } else if (GameJudge!=true) {
     GameOver();
   }
@@ -61,7 +64,7 @@ void addBLK() {
   int TriHP = 20;
   int PenHP = 60;
   int HexHP = 80;
-  if(GAME_STYLE==1){
+  if(GAME_MODE==1){
     x=random(width);
     y=random(height);
     switch(int(random(4))) {
@@ -81,7 +84,7 @@ void addBLK() {
       break;
     }
   }
-  else if(GAME_STYLE==2){
+  else if(GAME_MODE==2){
     switch(STAGE_NUM){
       case 1:
         allBCK.add(new Triangle3 (100, 100, TriHP));
