@@ -170,18 +170,21 @@ class Player extends Base {
       }
     }
   }
-  private void HitCheck() {
-    float Plx, Ply, Tamax, Tamay;
+   private void HitCheck() {
+    float Plx, Ply, Blx, Bly;
     Plx=x;
     Ply=y;
     //println(Plx, Ply);
-    for (int j=0; j<Tamas.size(); j++) {
-      Tama tempBlock =Tamas.get(j);
-      Tamax=tempBlock.x;
-      Tamay=tempBlock.y;
-      if ( CheckMan3(Tamax, Tamay, Plx, Ply)) {
-        GameJudge=false;
+    for (int j=0; j<allBCK.size(); j++) {
+      Block tempBlock =(Block)allBCK.get(j);
+      Blx=tempBlock.x;
+      Bly=tempBlock.y;
+      if ( CheckMan2(Plx, Ply, Blx, Bly)) {
+        player.HP -= 20;
       }
+      if (player.HP<=0) {
+            GameJudge=false;
+          }
     }
   }
 }

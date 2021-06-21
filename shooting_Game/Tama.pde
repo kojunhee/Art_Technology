@@ -48,24 +48,28 @@ class Tama {
             allBCK.remove(j);
             SCORE+=10;
             println("SCORE: "+SCORE);
-            //println("BlockNumber: "+allBCK.size());
-            //println("TamaNumber: "+Tamas.size());
           }
         }
-      }
-        Plx=player2.x;
-        Ply=player2.y;
-        health=player2.HP;
-        if ( CheckMan3(Bux, Buy,Plx,Ply)) {
-          player2.HP= player2.HP-Dam;
-          Tamas.remove(i);
-          if (health<=0) 
-          GameOver();
-            //println("BlockNumber: "+allBCK.size());
-            //println("TamaNumber: "+Tamas.size());
+      }        
+      Plx=player.x;
+      Ply=player.y;
+      health=player.HP;
+      if ( CheckMan3(Bux, Buy, Plx,Ply)) {
+        player.HP= player.HP-Dam;
+        Tamas.remove(i);
+          if (health<=0) {
+          GameJudge=false;
           }
-        }
       }
+      
+      Plx=player2.x;
+      Ply=player2.y;
+      if ( CheckMan3(Bux, Buy, Plx, Ply)) {
+        Tamas.remove(i);
+      }
+    }
+  }
+      
   boolean isExist() {
     if (life < 0) {
       return false;

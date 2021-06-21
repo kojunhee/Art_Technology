@@ -30,6 +30,15 @@ void init() {
   player.Damage =20;
   player.flag=true;
   player.isBack = true;
-  player =new Player(width/2, height/2, 30,100);
-  player2 =new Player(width/2, height/2, 50,1000000);
+  player.HP = 100;
+  player2.movementSpeed=2;
+  player2.bulletSpeed = 5;    
+  player2.reloadTime = 60; 
+  player2.Damage =20;
+  player2.flag=true;
+  player2.isBack = true;
+  player2.HP = 100;
+  
+  player =new Player(width/2-30, height/2, 30,100);
+  player2 =new Player(width/2+30, height/2, 50,1000000);
 }
