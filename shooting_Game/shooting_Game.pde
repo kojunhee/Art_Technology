@@ -73,7 +73,6 @@ void draw( ) {
           allBCK.get(k).shot();
         }
       } 
-      drawSCORE();
     }
     else{
       textSize(25);
@@ -194,7 +193,7 @@ void addBLK() {
 }
 
 
-ArrayList<Tama> Tamas = new ArrayList<Tama>();
+ArrayList<Attack> Attacks = new ArrayList<Attack>();
 
   final color FILL_COLOR = color(0, 178, 225);  
   final color enemy_COLOR = color(255, 50, 50);  
@@ -205,33 +204,33 @@ ArrayList<Tama> Tamas = new ArrayList<Tama>();
   int timeCheck = 60;  //time after shot
   int Damage =20;
 
-boolean CheckMan( float Tamax, float Tamay, float Blockx, float Blocky) { //Block&Bullet
-  float SankakuX, SankakuY, SankakuR;
-  SankakuX = abs(Tamax - Blockx);
-  SankakuY = abs(Tamay - Blocky); 
-  SankakuR = 30/2 + 15/2; //Block size touituka(30/2), Tama Hankei sansyou
-  return ( sqrt( sq(SankakuX) + sq(SankakuY) ) < SankakuR );
+boolean CheckMan( float Attackx, float Attacky, float Blockx, float Blocky) { //Block&Bullet
+  float diffX, diffY, diffR;
+  diffX = abs(Attackx - Blockx);
+  diffY = abs(Attacky - Blocky); 
+  diffR = 30/2 + 15/2; //Block size touituka(30/2), Attack Hankei sansyou
+  return ( sqrt( sq(diffX) + sq(diffY) ) < diffR );
 }
-boolean CheckMan2( float Tamax, float Tamay, float Blockx, float Blocky) { //Block&Player
-  float SankakuX, SankakuY, SankakuR;
-  SankakuX = abs(Tamax - Blockx);
-  SankakuY = abs(Tamay - Blocky); 
-  SankakuR = 30/2 + 30/2; //Block size touituka(30/2), Player Hankei sansyou
-  return ( sqrt( sq(SankakuX) + sq(SankakuY) ) < SankakuR );
+boolean CheckMan2( float Attackx, float Attacky, float Blockx, float Blocky) { //Block&Player
+  float diffX, diffY, diffR;
+  diffX = abs(Attackx - Blockx);
+  diffY = abs(Attacky - Blocky); 
+  diffR = 30/2 + 30/2; //Block size touituka(30/2), Player Hankei sansyou
+  return ( sqrt( sq(diffX) + sq(diffY) ) < diffR );
 }
-boolean CheckMan3( float Tamax, float Tamay, float playerX, float playerY) { //Block&Player
-  float SankakuX, SankakuY, SankakuR;
-  SankakuX = abs(Tamax - playerX);
-  SankakuY = abs(Tamay - playerY); 
-  SankakuR = 30; //Block size touituka(30/2), Player Hankei sansyou
-  return ( sqrt( sq(SankakuX) + sq(SankakuY) ) < SankakuR );
+boolean CheckMan3( float Attackx, float Attacky, float playerX, float playerY) { //Block&Player
+  float diffX, diffY, diffR;
+  diffX = abs(Attackx - playerX);
+  diffY = abs(Attacky - playerY); 
+  diffR = 30; //Block size touituka(30/2), Player Hankei sansyou
+  return ( sqrt( sq(diffX) + sq(diffY) ) < diffR );
 }
-boolean CheckMan4( float Tamax, float Tamay, float playerX, float playerY) { //Block&Player
-  float SankakuX, SankakuY, SankakuR;
-  SankakuX = abs(Tamax - playerX);
-  SankakuY = abs(Tamay - playerY); 
-  SankakuR = 50; //Block size touituka(30/2), Player Hankei sansyou
-  return ( sqrt( sq(SankakuX) + sq(SankakuY) ) < SankakuR );
+boolean CheckMan4( float Attackx, float Attacky, float playerX, float playerY) { //Block&Player
+  float diffX, diffY, diffR;
+  diffX = abs(Attackx - playerX);
+  diffY = abs(Attacky - playerY); 
+  diffR = 50; //Block size touituka(30/2), Player Hankei sansyou
+  return ( sqrt( sq(diffX) + sq(diffY) ) < diffR );
 }
 
 

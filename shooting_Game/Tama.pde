@@ -1,4 +1,4 @@
-class Tama {
+class Attack {
   float x, y;
   private float speedX, speedY;
   private int r = 15;   //chokkei
@@ -6,7 +6,7 @@ class Tama {
   private int life;
   int Dam;
 
-  Tama(float x, float y, int speed, float angle, color fillColor, int Dam) {
+  Attack(float x, float y, int speed, float angle, color fillColor, int Dam) {
     this.x = x;
     this.y = y;
     this.speedX = speed * cos(angle);
@@ -32,8 +32,8 @@ class Tama {
   private void HitCheck() {
     float Bux, Buy, Blx, Bly, Plx, Ply;
     int health;
-    for (int i=0; i<Tamas.size(); i++) {
-      Tama temp = (Tama)Tamas.get(i);
+    for (int i=0; i<Attacks.size(); i++) {
+      Attack temp = (Attack)Attacks.get(i);
       Bux = temp.x;
       Buy = temp.y;
       for (int j=0; j<allBCK.size(); j++) {
@@ -43,7 +43,7 @@ class Tama {
         health=tempBlock.HP;
         if ( CheckMan(Bux, Buy, Blx, Bly)) {
           tempBlock.HP= tempBlock.HP-Dam;
-          Tamas.remove(i);
+          Attacks.remove(i);
           if (health<=0) {
             allBCK.remove(j);
             SCORE+=10;
@@ -56,7 +56,7 @@ class Tama {
       health=player.HP;
       if ( CheckMan3(Bux, Buy, Plx,Ply)) {
         player.HP= player.HP-Dam;
-        Tamas.remove(i);
+        Attacks.remove(i);
           if (health<=0) {
           GameJudge=false;
           }
@@ -65,7 +65,7 @@ class Tama {
       Plx=player2.x;
       Ply=player2.y;
       if ( CheckMan4(Bux, Buy, Plx+30, Ply+30)) {
-        Tamas.remove(i);
+        Attacks.remove(i);
       }
     }
   }

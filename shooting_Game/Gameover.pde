@@ -6,7 +6,6 @@ void GameOver() {
   if (CountDown > 0) {
     drawBG();
     drawAllBlk();
-    drawSCORE();
     textSize(80);
     fill(#F6FF0D);
     text("GAME OVER", 160, height/2);
@@ -21,7 +20,7 @@ void GameOver() {
 
 void init() {
   allBCK.clear();
-  Tamas.clear();
+  Attacks.clear();
 
   SCORE=0;
   player.movementSpeed=2;

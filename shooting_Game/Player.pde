@@ -3,7 +3,7 @@ abstract class Base {
   public float x, y;
   protected int r;
   protected float angle;
-  //protected ArrayList<Tama> Tamas;
+  //protected ArrayList<Attack> Attacks;
 
   abstract void show();
   abstract void move();
@@ -33,11 +33,11 @@ class Player extends Base {
     this.r = r;
     this.HP = hp;
     this.type = type;
-    //this.Tamas = new ArrayList<Tama>();
+    //this.Attacks = new ArrayList<Attack>();
   }
 
   void show() {
-    drawTamas();
+    drawAttacks();
 
     stroke(93);
     strokeWeight(3);
@@ -84,7 +84,7 @@ class Player extends Base {
   }
 
   void shot() {
-    Tamas.add(new Tama(x+45*cos(angle), y+45*sin(angle), bulletSpeed, angle, FILL_COLOR, Damage));
+    Attacks.add(new Attack(x+45*cos(angle), y+45*sin(angle), bulletSpeed, angle, FILL_COLOR, Damage));
     gun = minim.loadFile("baam.mp3", 2048);
     gun.play();
     timeCheck = 0;
@@ -187,12 +187,12 @@ class Player extends Base {
     this.angle = atan2(mouseY - this.y, mouseX - this.x);
   }
 
-  private void drawTamas() {
-    for (int i = 0; i < Tamas.size(); i++) {
-      Tama bullet = Tamas.get(i);
+  private void drawAttacks() {
+    for (int i = 0; i < Attacks.size(); i++) {
+      Attack bullet = Attacks.get(i);
       bullet.show();
       if (!bullet.isExist()) {
-        Tamas.remove(bullet);
+        Attacks.remove(bullet);
       }
     }
   }
