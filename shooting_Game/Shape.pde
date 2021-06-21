@@ -25,7 +25,7 @@ class Rectangle4 extends Block {
     this.HP = HP;
   }
   public void shot() {
-    Attacks.add(new Attack(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed/2, angle2, enemy_COLOR, Damage));
+    Attacks.add(new Attack(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed*2/3, angle2, enemy_COLOR, Damage));
     timeCheck = 0;
   }
 
@@ -70,7 +70,7 @@ class Triangle3 extends Block {
     this.HP = HP;
   }
   public void shot() {
-    Attacks.add(new Attack(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed/2, angle2, enemy_COLOR, Damage));
+    Attacks.add(new Attack(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed*2/3, angle2, enemy_COLOR, Damage));
     timeCheck = 0;
   }
 
@@ -87,7 +87,7 @@ class Triangle3 extends Block {
     
     pushMatrix();
     tint(255);
-    image(pika,-25,-25,50,50);
+    //image(pika,-25,-25,50,50);
     popMatrix();
 
     popMatrix();
@@ -118,7 +118,7 @@ class Pentagon5 extends Block {
     this.HP = HP;
   }
   public void shot() {
-    Attacks.add(new Attack(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed/2, angle2, enemy_COLOR, Damage));
+    Attacks.add(new Attack(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed*2/3, angle2, enemy_COLOR, Damage));
     timeCheck = 0;
   }
 
@@ -165,7 +165,7 @@ class Hexagon6 extends Block {
     this.HP = HP;
   }
   public void shot() {
-    Attacks.add(new Attack(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed/2, angle2, enemy_COLOR, Damage));
+    Attacks.add(new Attack(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed*2/3, angle2, enemy_COLOR, Damage));
     timeCheck = 0;
   }
   void show() {

@@ -59,6 +59,7 @@ class Attack {
         Attacks.remove(i);
           if (health<=0) {
           GameJudge=false;
+          GameOver();
           }
       }
       

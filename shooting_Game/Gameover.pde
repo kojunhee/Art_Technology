@@ -12,7 +12,8 @@ void GameOver() {
     textSize(30);
     fill(#0D12FF);
     text("RESTART : "+CountDown, 290, height/2-80);
-  } else {
+  } 
+  else {
     GameJudge=true;
     init();
   }
@@ -21,8 +22,12 @@ void GameOver() {
 void init() {
   allBCK.clear();
   Attacks.clear();
-
-  SCORE=0;
+  STAGE_NUM = 0;
+  MAX_BLK = 0;    
+  SCORE = 0;
+  GAME_MODE = 2;
+  GameStart = false;
+  GameJudge = true;
   player.movementSpeed=2;
   player.bulletSpeed = 5;    
   player.reloadTime = 60; 
