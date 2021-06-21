@@ -16,8 +16,8 @@ Player player2;
 void setup() {
   size(800, 600); 
   //size(showWidth,showHeight);
-  player = new Player(width/2, height/2, 30, 100);
-  player2 = new Player(width/2, height/2, 50,10000000);
+  player = new Player(width/2-30, height/2, 30, 100);
+  player2 = new Player(width/2+30, height/2, 50,1000);
 }
 
 
@@ -25,19 +25,19 @@ void draw( ) {
   if (GameJudge==true) {
     drawBG();
     drawPlayer();
-    /*
+   
     drawAllBlk();
     if (frameCount % MAKE_TIME == 0 && allBCK.size() < MAX_BLK) {
       addBLK();
     }
-    */
+   
     drawSCORE();
   } else if (GameJudge!=true) {
     GameOver();
   }
 }
 
-/*
+
 void addBLK() {
   float x, y;
   int RecHP = 40;
@@ -65,7 +65,7 @@ void addBLK() {
 
   //if(i==5){allBCK.remove(0);}
 }
-*/
+
 
 ArrayList<Tama> Tamas = new ArrayList<Tama>();
 
@@ -95,7 +95,7 @@ boolean CheckMan3( float Tamax, float Tamay, float playerX, float playerY) { //B
   float SankakuX, SankakuY, SankakuR;
   SankakuX = abs(Tamax - playerX);
   SankakuY = abs(Tamay - playerY); 
-  SankakuR = 30/2 + 30/2; //Block size touituka(30/2), Player Hankei sansyou
+  SankakuR = 30; //Block size touituka(30/2), Player Hankei sansyou
   return ( sqrt( sq(SankakuX) + sq(SankakuY) ) < SankakuR );
 }
 
