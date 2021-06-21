@@ -2,6 +2,10 @@ abstract class Block {
   protected float x, y;
   protected float angle;
   abstract void show();
+  public void shot() {
+    Tamas.add(new Tama(player.x+70*cos(angle), player.y+70*sin(angle), bulletSpeed, angle, FILL_COLOR, Damage));
+    timeCheck = 0;
+  }
   int HP;
 }
 

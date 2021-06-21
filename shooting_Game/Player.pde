@@ -67,10 +67,10 @@ class Player extends Base {
   }
 
   void shot() {
-    Tamas.add(new Tama(x+30*cos(angle), y+30*sin(angle), bulletSpeed, angle, FILL_COLOR, Damage));
+    Tamas.add(new Tama(x+45*cos(angle), y+45*sin(angle), bulletSpeed, angle, FILL_COLOR, Damage));
     timeCheck = 0;
   }
-
+  
   void lvlUP() {
     println(flag);
     if (SCORE%50==0 && flag == false){

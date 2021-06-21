@@ -40,5 +40,5 @@ void init() {
   player2.HP = 100;
   
   player =new Player(width/2-30, height/2, 30,100,1);
-  player2 =new Player(width/2+30, height/2, 50,1000000,2);
+  player2 =new Player(width/2+30, height/2, 50,100,2);
 }

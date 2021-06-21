@@ -7,7 +7,7 @@ Minim minim;
 AudioPlayer music;
 AudioMetaData meta;
 
-final int MAX_BLK = 30;    
+ 
 final color BCK_COLOR = color(130,210,50);  
 final color LINE_COLOR = color(189);   
 final int GRID_SPACE = 25;  
@@ -16,7 +16,10 @@ final int EXIST_TIME = 60*3;
 
 
 
+int STAGE_NUM = 0;
+int MAX_BLK = 0;  
 int SCORE = 0;
+int GAME_MODE = 2;
 boolean GameStart = false;
 boolean GameJudge = true;
 
@@ -47,8 +50,23 @@ void draw( ) {
     drawBG();
     drawPlayer();
    
-   
     if(GameStart==true){
+      if(allBCK.size()==0){
+      player.x = width/2-30;
+      player.y = height/2;
+      player2.x = width/2+30;
+      player2.y = height/2;
+      STAGE_NUM++;
+      MAX_BLK++;
+      if(GAME_MODE==1){
+        for(int i =0; i< MAX_BLK;i++) {
+            addBLK();
+        }
+      }
+      else if(GAME_MODE==2){
+        addBLK();
+      }
+    }
       drawAllBlk();
       if (frameCount % MAKE_TIME == 0 && allBCK.size() < MAX_BLK) {
         addBLK();
@@ -117,23 +135,55 @@ void addBLK() {
   int TriHP = 20;
   int PenHP = 60;
   int HexHP = 80;
-  x=random(width);
-  y=random(height);
-  switch(int(random(4))) {
-  case 0: 
-    allBCK.add(new Rectangle4(x, y, RecHP));
-    break;
-  case 1: 
-    allBCK.add(new Triangle3 (x, y, TriHP));
-    break;
-  case 2: 
-    allBCK.add(new Pentagon5(x, y, PenHP));
-    break;
-  case 3: 
-    allBCK.add(new Hexagon6(x, y, HexHP));
-    break;
-  default: 
-    break;
+  if(GAME_MODE==1){
+    x=random(width);
+    y=random(height);
+    switch(int(random(4))) {
+    case 0: 
+      allBCK.add(new Rectangle4(x, y, RecHP));
+      break;
+    case 1: 
+      allBCK.add(new Triangle3 (x, y, TriHP));
+      break;
+    case 2: 
+      allBCK.add(new Pentagon5(x, y, PenHP));
+      break;
+    case 3: 
+      allBCK.add(new Hexagon6(x, y, HexHP));
+      break;
+    default: 
+      break;
+    }
+  }
+  else if(GAME_MODE==2){
+    switch(STAGE_NUM){
+      case 1:
+        allBCK.add(new Triangle3 (100, 100, TriHP));
+        allBCK.add(new Triangle3 (100, 300, TriHP));
+        allBCK.add(new Triangle3 (100, 500, TriHP));
+        allBCK.add(new Triangle3 (600, 100, TriHP));
+        allBCK.add(new Triangle3 (600, 300, TriHP));
+        allBCK.add(new Triangle3 (600, 500, TriHP));
+        break;
+      case 2: 
+        allBCK.add(new Pentagon5 (100, 100, PenHP));
+        allBCK.add(new Pentagon5 (100, 300, PenHP));
+        allBCK.add(new Pentagon5 (100, 500, PenHP));
+        allBCK.add(new Pentagon5 (600, 100, PenHP));
+        allBCK.add(new Pentagon5 (600, 300, PenHP));
+        allBCK.add(new Pentagon5 (600, 500, PenHP));
+        break;
+      case 3: 
+        allBCK.add(new Triangle3 (100, 100, TriHP));
+        allBCK.add(new Triangle3 (100, 300, TriHP));
+        allBCK.add(new Triangle3 (100, 500, TriHP));
+        allBCK.add(new Triangle3 (600, 100, TriHP));
+        allBCK.add(new Triangle3 (600, 300, TriHP));
+        allBCK.add(new Triangle3 (600, 500, TriHP));
+        break;
+      default: 
+        break;
+   }
   }
 
   //if(i==5){allBCK.remove(0);}
