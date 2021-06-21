@@ -10,19 +10,21 @@ boolean GameJudge = true;
 
 ArrayList<Block> allBCK = new ArrayList<Block>();
 Player player; 
+Player player2; 
 
 
 void setup() {
   size(800, 600); 
   //size(showWidth,showHeight);
-  player = new Player(width/2, height/2, 30);
+  player = new Player(width/2, height/2, 30, 100);
+  player2 = new Player(width/2, height/2, 50,10000000);
 }
 
 
 void draw( ) {
   if (GameJudge==true) {
     drawBG();
-     drawPlayer();
+    drawPlayer();
     /*
     drawAllBlk();
     if (frameCount % MAKE_TIME == 0 && allBCK.size() < MAX_BLK) {
@@ -65,7 +67,7 @@ void addBLK() {
 }
 */
 
-ArrayList<Tama> Tamas=new ArrayList<Tama>();
+ArrayList<Tama> Tamas = new ArrayList<Tama>();
 
   final color FILL_COLOR = color(0, 178, 225);  
   final color BATTERY_COLOR = color(153); 
@@ -89,29 +91,51 @@ boolean CheckMan2( float Tamax, float Tamay, float Blockx, float Blocky) { //Blo
   SankakuR = 30/2 + 30/2; //Block size touituka(30/2), Player Hankei sansyou
   return ( sqrt( sq(SankakuX) + sq(SankakuY) ) < SankakuR );
 }
+boolean CheckMan3( float Tamax, float Tamay, float playerX, float playerY) { //Block&Player
+  float SankakuX, SankakuY, SankakuR;
+  SankakuX = abs(Tamax - playerX);
+  SankakuY = abs(Tamay - playerY); 
+  SankakuR = 30/2 + 30/2; //Block size touituka(30/2), Player Hankei sansyou
+  return ( sqrt( sq(SankakuX) + sq(SankakuY) ) < SankakuR );
+}
 
-boolean leftKeyDown, rightKeyDown, upKeyDown, downKeyDown;
 
 void keyPressed() {
   if (keyCode == 'A') {
-    leftKeyDown = true;
+    player.leftKeyDown = true;
   } else if (keyCode == 'D') {
-    rightKeyDown = true;
+    player.rightKeyDown = true;
   } else if (keyCode == 'W') {
-    upKeyDown = true;
+    player.upKeyDown = true;
   } else if (keyCode == 'S') {
-    downKeyDown = true;
+    player.downKeyDown = true;
+  } else if (keyCode == LEFT) {
+    player2.leftKeyDown = true;
+  } else if (keyCode == RIGHT) {
+    player2.rightKeyDown = true;
+  } else if (keyCode == UP) {
+    player2.upKeyDown = true;
+  } else if (keyCode == DOWN) {
+    player2.downKeyDown = true;
   }
 }
 
 void keyReleased() {
   if (keyCode == 'A') {
-    leftKeyDown = false;
+    player.leftKeyDown = false;
   } else if (keyCode == 'D') {
-    rightKeyDown = false;
+    player.rightKeyDown = false;
   } else if (keyCode == 'W') {
-    upKeyDown = false;
+    player.upKeyDown = false;
   } else if (keyCode == 'S') {
-    downKeyDown = false;
+    player.downKeyDown = false;
+  } else if (keyCode == LEFT) {
+    player2.leftKeyDown = false;
+  } else if (keyCode == RIGHT) {
+    player2.rightKeyDown = false;
+  } else if (keyCode == UP) {
+    player2.upKeyDown = false;
+  } else if (keyCode == DOWN) {
+    player2.downKeyDown = false;
   }
 }

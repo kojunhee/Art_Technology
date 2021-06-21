@@ -30,5 +30,6 @@ void init() {
   player.Damage =20;
   player.flag=true;
   player.isBack = true;
-  player =new Player(width/2, height/2, 30);
+  player =new Player(width/2, height/2, 30,100);
+  player2 =new Player(width/2, height/2, 50,1000000);
 }
