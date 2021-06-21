@@ -37,6 +37,16 @@ class Rectangle4 extends Block {
     rect(0, 0, WIDTH, WIDTH, 1);
 
     popMatrix();
+    
+    pushMatrix();
+    strokeWeight(10);
+    stroke(255,255,255);
+    line(this.x, this.y, this.x+50, this.y);
+    stroke(0,0,0);
+    int position = int(map(this.HP, 0, HP, this.x, this.x+50));
+    line( this.x, this.y, position, this.y);
+    popMatrix();
+    
   }
 }
 
@@ -63,6 +73,15 @@ class Triangle3 extends Block {
     rotate(angle);
     triangle(WIDTH+cos(0), WIDTH*sin(0), WIDTH*cos(TWO_PI/3), WIDTH*sin(TWO_PI/3), WIDTH*cos(TWO_PI/3*2), WIDTH*sin(TWO_PI/3*2));
 
+    popMatrix();
+    
+    pushMatrix();
+    strokeWeight(10);
+    stroke(255,255,255);
+    line(this.x, this.y, this.x+50, this.y);
+    stroke(0,0,0);
+    int position = int(map(this.HP, 0, HP, this.x, this.x+50));
+    line( this.x, this.y, position, this.y);
     popMatrix();
   }
 }
@@ -95,6 +114,15 @@ class Pentagon5 extends Block {
     endShape(CLOSE);
 
     popMatrix();
+    
+    pushMatrix();
+    strokeWeight(10);
+    stroke(255,255,255);
+    line(this.x, this.y, this.x+50, this.y);
+    stroke(0,0,0);
+    int position = int(map(this.HP, 0, HP, this.x, this.x+50));
+    line( this.x, this.y, position, this.y);
+    popMatrix();
   }
 }
 
@@ -123,6 +151,15 @@ class Hexagon6 extends Block {
     }
     endShape(CLOSE);
 
+    popMatrix();
+    
+    pushMatrix();
+    strokeWeight(10);
+    stroke(255,255,255);
+    line(this.x, this.y, this.x+50, this.y);
+    stroke(0,0,0);
+    int position = int(map(this.HP, 0, HP, this.x, this.x+50));
+    line( this.x, this.y, position, this.y);
     popMatrix();
   }
 }

@@ -14,8 +14,6 @@ final int GRID_SPACE = 25;
 final int MAKE_TIME = 60*2;   
 final int EXIST_TIME = 60*3;
 
-
-
 int STAGE_NUM = 0;
 int MAX_BLK = 0;  
 int SCORE = 0;
@@ -118,10 +116,16 @@ void draw( ) {
       text("Art And Technology", 0,200);
       
       fill(170,170,245);
-      rect(300,380,200,100,30); // start button
+      rect(150,350,200,100,30); // start button 1
       textSize(25);
       fill(0);
-      text("   GAME START", 300,430);
+      text(" GAME_MODE_1 \n        START", 150,400);
+      
+      fill(170,170,245);
+      rect(380,350,200,100,30); // start button 2
+      textSize(25);
+      fill(0);
+      text(" GAME_MODE_2 \n        START", 380,400);
     }
   } else if (GameJudge!=true) {
     GameOver();
@@ -300,7 +304,14 @@ void mousePressed(){
     music.play();
     meta = music.getMetaData();
   }
-  if(300<mouseX && mouseX<500 && 380<mouseY && mouseY<480 ){
+  
+  if(150<mouseX && mouseX<350 && 350<mouseY && mouseY<450 ){
+    GAME_MODE=1;
+    GameStart = true;
+  }
+
+  if(380<mouseX && mouseX<580 && 350<mouseY && mouseY<450 ){
+    GAME_MODE=2;
     GameStart = true;
   }
   }

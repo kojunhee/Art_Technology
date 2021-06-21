@@ -1,4 +1,4 @@
-
+AudioPlayer gun;
 abstract class Base {
   protected float x, y;
   protected int r;
@@ -68,6 +68,8 @@ class Player extends Base {
 
   void shot() {
     Tamas.add(new Tama(x+45*cos(angle), y+45*sin(angle), bulletSpeed, angle, FILL_COLOR, Damage));
+    gun = minim.loadFile("baam.mp3", 2048);
+    gun.play();
     timeCheck = 0;
   }
   
