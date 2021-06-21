@@ -66,8 +66,10 @@ void draw( ) {
       }
     }
       drawAllBlk();
-      if (frameCount % MAKE_TIME == 0 && allBCK.size() < MAX_BLK) {
-        addBLK();
+      if (frameCount % MAKE_TIME == 0) {
+        for(k=0 ; k<allBCK.size() ; k++){
+          allBCK.get(k).shot();
+        }
       } 
       drawSCORE();
     }
@@ -197,6 +199,7 @@ void addBLK() {
 ArrayList<Tama> Tamas = new ArrayList<Tama>();
 
   final color FILL_COLOR = color(0, 178, 225);  
+  final color enemy_COLOR = color(255, 50, 50);  
   final color BATTERY_COLOR = color(153); 
   int movementSpeed = 2;  
   int bulletSpeed = 5;    

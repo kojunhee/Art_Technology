@@ -1,11 +1,9 @@
 abstract class Block {
   protected float x, y;
   protected float angle;
+  protected float angle2;
   abstract void show();
-  public void shot() {
-    Tamas.add(new Tama(player.x+70*cos(angle), player.y+70*sin(angle), bulletSpeed, angle, FILL_COLOR, Damage));
-    timeCheck = 0;
-  }
+  abstract void shot();
   int HP;
 }
 
@@ -26,9 +24,13 @@ class Rectangle4 extends Block {
     this.angle = random(TWO_PI);
     this.HP = HP;
   }
+  public void shot() {
+    Tamas.add(new Tama(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed/2, angle2, enemy_COLOR, Damage));
+    timeCheck = 0;
+  }
 
   void show() {
-
+    updateAngle();
     fill(fillColor);
     stroke(93);
     strokeWeight(2);
@@ -51,6 +53,9 @@ class Rectangle4 extends Block {
     popMatrix();
     
   }
+  private void updateAngle() {
+    this.angle2 = atan2(player.y - this.y, player.x - this.x);
+  }
 }
 
 class Triangle3 extends Block {
@@ -64,8 +69,13 @@ class Triangle3 extends Block {
     this.angle = random(TWO_PI);
     this.HP = HP;
   }
+  public void shot() {
+    Tamas.add(new Tama(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed/2, angle2, enemy_COLOR, Damage));
+    timeCheck = 0;
+  }
 
   void show() {
+    updateAngle();
     fill(fillColor);
     stroke(93);
     strokeWeight(2);
@@ -87,6 +97,9 @@ class Triangle3 extends Block {
     line( this.x, this.y, position, this.y);
     popMatrix();
   }
+  private void updateAngle() {
+    this.angle2 = atan2(player.y - this.y, player.x - this.x);
+  }
 }
 
 class Pentagon5 extends Block {
@@ -100,8 +113,13 @@ class Pentagon5 extends Block {
     this.angle = random(TWO_PI);
     this.HP = HP;
   }
+  public void shot() {
+    Tamas.add(new Tama(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed/2, angle2, enemy_COLOR, Damage));
+    timeCheck = 0;
+  }
 
   void show() {
+    updateAngle();
     fill(fillColor);
     stroke(93);
     strokeWeight(2);
@@ -127,6 +145,9 @@ class Pentagon5 extends Block {
     line( this.x, this.y, position, this.y);
     popMatrix();
   }
+  private void updateAngle() {
+    this.angle2 = atan2(player.y - this.y, player.x - this.x);
+  }
 }
 
 class Hexagon6 extends Block {
@@ -139,7 +160,12 @@ class Hexagon6 extends Block {
     this.angle = random(TWO_PI);
     this.HP = HP;
   }
+  public void shot() {
+    Tamas.add(new Tama(x+70*cos(angle2), y+70*sin(angle2), bulletSpeed/2, angle2, enemy_COLOR, Damage));
+    timeCheck = 0;
+  }
   void show() {
+    updateAngle();
     fill(fillColor);
     stroke(93);
     strokeWeight(2);
@@ -164,5 +190,8 @@ class Hexagon6 extends Block {
     int position = int(map(this.HP, 0, HexHP, this.x, this.x+50));
     line( this.x, this.y, position, this.y);
     popMatrix();
+  }
+  private void updateAngle() {
+    this.angle2 = atan2(player.y - this.y, player.x - this.x);
   }
 }
