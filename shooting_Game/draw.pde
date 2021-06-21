@@ -1,5 +1,18 @@
+int k=0;
+boolean turn = false;
 void drawBG() {
-  background(BCK_COLOR);
+  background(0,200,100+k);
+    if(turn==false)
+      k++;
+    if(k>100){
+      turn=true;
+    }
+    if(turn==true){
+      k--;
+    }
+    if(k<0){
+      turn=false;
+  }
   strokeWeight(1);   
 }
 

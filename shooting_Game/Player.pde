@@ -1,3 +1,4 @@
+
 abstract class Base {
   protected float x, y;
   protected int r;
@@ -11,9 +12,10 @@ abstract class Base {
 class Player extends Base {
 
   boolean leftKeyDown, rightKeyDown, upKeyDown, downKeyDown;
-  final color FILL_COLOR = color(0, 178, 225);  
-  final color BATTERY_COLOR = color(153); 
+  color FILL_COLOR = color(0, 178, 225);  
+  color BATTERY_COLOR = color(153); 
   int HP;
+  int type;
   int movementSpeed = 4;  
   int bulletSpeed = 5;    
   int reloadTime = 30;    
@@ -23,11 +25,12 @@ class Player extends Base {
   boolean isBack = true;
   boolean flag = true;
 
-  Player(float x, float y, int r, int hp) {
+  Player(float x, float y, int r, int hp, int type) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.HP = hp;
+    this.type = type;
     //this.Tamas = new ArrayList<Tama>();
   }
 
@@ -39,14 +42,18 @@ class Player extends Base {
     pushMatrix();
 
     translate(x, y);
-    rotate(angle);
-
-    fill(BATTERY_COLOR);
-    rect(test, 0-r/4, r, r/2, 1);
-
-    fill(FILL_COLOR);
-    ellipse(0, 0, r, r);
-
+    
+    if(type==1){
+      rotate(angle);
+      fill(BATTERY_COLOR);
+      rect(test, 0-r/4, r, r/2, 1);
+      fill(FILL_COLOR);
+      ellipse(0, 0, r, r);
+    }
+    else{
+      tint(FILL_COLOR);
+      image(p2,0,0,r,r);
+    }
     popMatrix();
 
     updateAngle();
