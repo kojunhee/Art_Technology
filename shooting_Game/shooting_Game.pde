@@ -70,6 +70,11 @@ void draw( ) {
         textSize(50);
         fill(#F6FF0D);
         text("Your Score :" + (SCORE+player.HP), 50, height/2+100); 
+        fill(170,170,245);
+        rect(380,450,200,100,30); // start button 2
+        textSize(50);
+        fill(0);
+        text(" HOME", 385,515);
         ps.addParticle();
         ps.run();
       }
@@ -165,7 +170,9 @@ void draw( ) {
     GameOver();
   }
 }
-
+//if(150<mouseX && mouseX<350 && 350<mouseY && mouseY<450 ){
+//          init();
+//        }  
 
 void addBLK() {
   float x, y;
@@ -308,51 +315,55 @@ void keyReleased() {
 }
 void mousePressed(){
   if(!GameStart){
-  if(25<mouseX && mouseX<75 && 525<mouseY && mouseY<575 ){
-    player.FILL_COLOR= c1;
-  }
-  if(75<mouseX && mouseX<125 && 525<mouseY && mouseY<575 ){
-    player.FILL_COLOR= c2;
-  }
-  if(125<mouseX && mouseX<175 && 525<mouseY && mouseY<575 ){
-    player.FILL_COLOR= c3;
-  }
-  if(185<mouseX && mouseX<235 && 525<mouseY && mouseY<575 ){
-    player2.FILL_COLOR= c1;
-  }
-  if(235<mouseX && mouseX<285 && 525<mouseY && mouseY<575 ){
-    player2.FILL_COLOR= c2;
-  }
-  if(285<mouseX && mouseX<335 && 525<mouseY && mouseY<575 ){
-    player2.FILL_COLOR= c3;
-  }
-  if(625<mouseX && mouseX<675 && 525<mouseY && mouseY<575){
-    music.pause();
-    music = minim.loadFile("Sci-Fi.mp3", 2048);
-    music.loop();
-    meta = music.getMetaData();
-  }
-  if(675<mouseX && mouseX<725 && 525<mouseY && mouseY<575){
-    music.pause();
-    music = minim.loadFile("The great battle.mp3", 2048);
-    music.loop();
-    meta = music.getMetaData();
-  }
-  if(725<mouseX && mouseX<775 && 525<mouseY && mouseY<575){
-    music.pause();
-    music = minim.loadFile("Battle Metal.mp3", 2048);
-    music.loop();
-    meta = music.getMetaData();
-  }
+    if(25<mouseX && mouseX<75 && 525<mouseY && mouseY<575 ){
+      player.FILL_COLOR= c1;
+    }
+    if(75<mouseX && mouseX<125 && 525<mouseY && mouseY<575 ){
+      player.FILL_COLOR= c2;
+    }
+    if(125<mouseX && mouseX<175 && 525<mouseY && mouseY<575 ){
+      player.FILL_COLOR= c3;
+    }
+    if(185<mouseX && mouseX<235 && 525<mouseY && mouseY<575 ){
+      player2.FILL_COLOR= c1;
+    }
+    if(235<mouseX && mouseX<285 && 525<mouseY && mouseY<575 ){
+      player2.FILL_COLOR= c2;
+    }
+    if(285<mouseX && mouseX<335 && 525<mouseY && mouseY<575 ){
+      player2.FILL_COLOR= c3;
+    }
+    if(625<mouseX && mouseX<675 && 525<mouseY && mouseY<575){
+      music.pause();
+      music = minim.loadFile("Sci-Fi.mp3", 2048);
+      music.loop();
+      meta = music.getMetaData();
+    }
+    if(675<mouseX && mouseX<725 && 525<mouseY && mouseY<575){
+      music.pause();
+      music = minim.loadFile("The great battle.mp3", 2048);
+      music.loop();
+      meta = music.getMetaData();
+    }
+    if(725<mouseX && mouseX<775 && 525<mouseY && mouseY<575){
+      music.pause();
+      music = minim.loadFile("Battle Metal.mp3", 2048);
+      music.loop();
+      meta = music.getMetaData();
+    }
+    
+    if(150<mouseX && mouseX<350 && 350<mouseY && mouseY<450 ){
+      GAME_MODE=1;
+      GameStart = true;
+    }
   
-  if(150<mouseX && mouseX<350 && 350<mouseY && mouseY<450 ){
-    GAME_MODE=1;
-    GameStart = true;
+    if(380<mouseX && mouseX<580 && 350<mouseY && mouseY<450 ){
+      GAME_MODE=2;
+      GameStart = true;
+    }
   }
-
-  if(380<mouseX && mouseX<580 && 350<mouseY && mouseY<450 ){
-    GAME_MODE=2;
-    GameStart = true;
-  }
-  }
+  else if(380<mouseX && mouseX<580 && 450<mouseY && mouseY<550 && STAGE_NUM == 4 ){
+      GameJudge=true;
+      init();
+    }
 }
