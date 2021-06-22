@@ -58,7 +58,14 @@ void draw( ) {
       player.y = height/2;
       player2.x = width/2+30;
       player2.y = height/2;
-      STAGE_NUM++;
+      if (STAGE_NUM<4){
+        STAGE_NUM++;
+      }
+      else if(STAGE_NUM==4){
+        textSize(70);
+        fill(#F6FF0D);
+        text("CONGRATULATIONS!", 50, height/2);     
+      }
       MAX_BLK++;
         if(GAME_MODE==1){
           for(int i =0; i< MAX_BLK;i++) {
@@ -287,6 +294,8 @@ void keyReleased() {
     player2.upKeyDown = false;
   } else if (keyCode == DOWN) {
     player2.downKeyDown = false;
+  } else if (keyCode == 'P') {
+    player.reloadTime = player.reloadTime-10; 
   }
 }
 void mousePressed(){
