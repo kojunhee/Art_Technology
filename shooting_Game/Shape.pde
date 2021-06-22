@@ -8,10 +8,10 @@ abstract class Block {
 }
 
 //float Recx, Recy =0;
-int RecHP = 40;
-int TriHP = 30;
-int PenHP = 60;
-int HexHP = 80;
+int RecHP = 60;
+int TriHP = 40;
+int PenHP = 80;
+int HexHP = 100;
 class Rectangle4 extends Block {
 
   final int WIDTH = 30;

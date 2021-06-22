@@ -75,7 +75,7 @@ class Player extends Base {
     updateAngle();
     move();
     //lvlUP();
-    HitCheck();
+    //HitCheck();
     if (mousePressed && mouseButton == LEFT && player.timeCheck > player.reloadTime) {
       player.shot();
     }
@@ -195,21 +195,21 @@ class Player extends Base {
       }
     }
   }
-   private void HitCheck() {
-    float Plx, Ply, Blx, Bly;
-    Plx=x;
-    Ply=y;
-    //println(Plx, Ply);
-    for (int j=0; j<allBCK.size(); j++) {
-      Block tempBlock =(Block)allBCK.get(j);
-      Blx=tempBlock.x;
-      Bly=tempBlock.y;
-      if ( CheckMan2(Plx, Ply, Blx, Bly)) {
-        player.HP -= 20;
-      }
-      if (player.HP<=0) {
-            GameJudge=false;
-          }
-    }
-  }
+  // private void HitCheck() {
+  //  float Plx, Ply, Blx, Bly;
+  //  Plx=x;
+  //  Ply=y;
+  //  //println(Plx, Ply);
+  //  for (int j=0; j<allBCK.size(); j++) {
+  //    Block tempBlock =(Block)allBCK.get(j);
+  //    Blx=tempBlock.x;
+  //    Bly=tempBlock.y;
+  //    if ( CheckMan2(Plx, Ply, Blx, Bly)) {
+  //      player.HP -= 20;
+  //    }
+  //    if (player.HP<=0) {
+  //          GameJudge=false;
+  //        }
+  //  }
+  //}
 }

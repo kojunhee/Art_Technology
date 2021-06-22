@@ -74,6 +74,11 @@ void draw( ) {
           fill(#0D12FF);
           text("Stage " + STAGE_NUM, 320, height/2-250);
         }
+        else if(GAME_MODE==1){
+          textSize(30);
+          fill(#0D12FF);
+          text("Stage " + MAX_BLK, 320, height/2-250);
+        }
     
       drawAllBlk();
       if (frameCount % MAKE_TIME == 0) {
@@ -83,6 +88,9 @@ void draw( ) {
       } 
     }
     else{
+      textSize(30);
+      fill(#0D12FF);
+      text("KO*(JunHee+SeYeon)", 430, height/2-250);
       textSize(25);
       fill(0);
       text("GIST 2021 Spring Semester", 0,50);
@@ -216,28 +224,28 @@ boolean CheckMan( float Attackx, float Attacky, float Blockx, float Blocky) { //
   float diffX, diffY, diffR;
   diffX = abs(Attackx - Blockx);
   diffY = abs(Attacky - Blocky); 
-  diffR = 30/2 + 15/2; //Block size touituka(30/2), Attack Hankei sansyou
+  diffR = 30/2 + 15/2; 
   return ( sqrt( sq(diffX) + sq(diffY) ) < diffR );
 }
-boolean CheckMan2( float Attackx, float Attacky, float Blockx, float Blocky) { //Block&Player
-  float diffX, diffY, diffR;
-  diffX = abs(Attackx - Blockx);
-  diffY = abs(Attacky - Blocky); 
-  diffR = 30/2 + 30/2; //Block size touituka(30/2), Player Hankei sansyou
-  return ( sqrt( sq(diffX) + sq(diffY) ) < diffR );
-}
-boolean CheckMan3( float Attackx, float Attacky, float playerX, float playerY) { //Block&Player
-  float diffX, diffY, diffR;
-  diffX = abs(Attackx - playerX);
-  diffY = abs(Attacky - playerY); 
-  diffR = 30; //Block size touituka(30/2), Player Hankei sansyou
-  return ( sqrt( sq(diffX) + sq(diffY) ) < diffR );
-}
-boolean CheckMan4( float Attackx, float Attacky, float playerX, float playerY) { //Block&Player
+//boolean CheckMan2( float Attackx, float Attacky, float Blockx, float Blocky) { //Block&Player
+//  float diffX, diffY, diffR;
+//  diffX = abs(Attackx - Blockx);
+//  diffY = abs(Attacky - Blocky); 
+//  diffR = 30/2 + 30/2; 
+//  return ( sqrt( sq(diffX) + sq(diffY) ) < diffR );
+//}
+boolean CheckMan3( float Attackx, float Attacky, float playerX, float playerY) { //bullet&Player1
   float diffX, diffY, diffR;
   diffX = abs(Attackx - playerX);
   diffY = abs(Attacky - playerY); 
-  diffR = 50; //Block size touituka(30/2), Player Hankei sansyou
+  diffR = 30; 
+  return ( sqrt( sq(diffX) + sq(diffY) ) < diffR );
+}
+boolean CheckMan4( float Attackx, float Attacky, float playerX, float playerY) { //bullet&Player2
+  float diffX, diffY, diffR;
+  diffX = abs(Attackx - playerX);
+  diffY = abs(Attacky - playerY); 
+  diffR = 50; 
   return ( sqrt( sq(diffX) + sq(diffY) ) < diffR );
 }
 
