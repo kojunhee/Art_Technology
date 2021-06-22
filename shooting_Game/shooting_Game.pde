@@ -38,7 +38,7 @@ void setup() {
   enemy = loadImage("enemy.png");
   
   minim = new Minim(this);
-  music = minim.loadFile("whatdoicallyou.mp3", 2048);
+  music = minim.loadFile("Sci-Fi.mp3", 2048);
   meta = music.getMetaData();
   
   
@@ -132,6 +132,7 @@ void draw( ) {
       ellipse(750,550,50,50); //music3
       fill(0);
       text(meta.title(), 400, 550);
+      textSize(20);
       text(meta.author(),400, 575);
       text("1",640,560);
       text("2",690,560);
@@ -320,19 +321,19 @@ void mousePressed(){
   }
   if(625<mouseX && mouseX<675 && 525<mouseY && mouseY<575){
     music.pause();
-    music = minim.loadFile("whatdoicallyou.mp3", 2048);
+    music = minim.loadFile("Sci-Fi.mp3", 2048);
     music.play();
     meta = music.getMetaData();
   }
   if(675<mouseX && mouseX<725 && 525<mouseY && mouseY<575){
     music.pause();
-    music = minim.loadFile("celebrity.mp3", 2048);
+    music = minim.loadFile("The great battle.mp3", 2048);
     music.play();
     meta = music.getMetaData();
   }
   if(725<mouseX && mouseX<775 && 525<mouseY && mouseY<575){
     music.pause();
-    music = minim.loadFile("gone.mp3", 2048);
+    music = minim.loadFile("Battle Metal.mp3", 2048);
     music.play();
     meta = music.getMetaData();
   }
