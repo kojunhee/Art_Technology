@@ -49,7 +49,8 @@ class Player extends Base {
       pushMatrix();
       rotate(angle);
       tint(FILL_COLOR);
-      image(p1,0,0,r*2,r*2);
+      rotate(TWO_PI/4);
+      image(p1,-30,-30,r*2,r*2);
       popMatrix();
       
       pushMatrix();

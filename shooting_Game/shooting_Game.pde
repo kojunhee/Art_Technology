@@ -13,7 +13,7 @@ final color BCK_COLOR = color(130,210,50);
 final color LINE_COLOR = color(189);   
 final int GRID_SPACE = 25;  
 final int MAKE_TIME = 60*2;   
-final int EXIST_TIME = 60*3;
+final int EXIST_TIME = 60*6;
 
 int STAGE_NUM = 0;
 int MAX_BLK = 0;  
@@ -60,15 +60,21 @@ void draw( ) {
       player2.y = height/2;
       STAGE_NUM++;
       MAX_BLK++;
-      if(GAME_MODE==1){
-        for(int i =0; i< MAX_BLK;i++) {
-            addBLK();
+        if(GAME_MODE==1){
+          for(int i =0; i< MAX_BLK;i++) {
+              addBLK();
+          }
+        } 
+        else if(GAME_MODE==2){
+          addBLK();
         }
       }
-      else if(GAME_MODE==2){
-        addBLK();
-      }
-    }
+        if(GAME_MODE==2){
+          textSize(30);
+          fill(#0D12FF);
+          text("Stage " + STAGE_NUM, 320, height/2-250);
+        }
+    
       drawAllBlk();
       if (frameCount % MAKE_TIME == 0) {
         for(k=0 ; k<allBCK.size() ; k++){

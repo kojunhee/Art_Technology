@@ -37,7 +37,7 @@ class Rectangle4 extends Block {
     translate(x, y);
     pushMatrix();
     tint(fillColor);
-    image(enemy,-25,-25,100,100);
+    image(enemy,-40,-40,80,80);
     popMatrix();
     popMatrix();
     
@@ -80,7 +80,7 @@ class Triangle3 extends Block {
     translate(x, y);
     pushMatrix();
     tint(fillColor);
-    image(enemy,-25,-25,100,100);
+    image(enemy,-40,-40,80,80);
     popMatrix();
     popMatrix();
     
@@ -122,7 +122,7 @@ class Pentagon5 extends Block {
     translate(x, y);
     pushMatrix();
     tint(fillColor);
-    image(enemy,-25,-25,100,100);
+    image(enemy,-40,-40,80,80);
     popMatrix();
     popMatrix();
     
@@ -162,7 +162,7 @@ class Hexagon6 extends Block {
     translate(x, y);
     pushMatrix();
     tint(fillColor);
-    image(enemy,-25,-25,100,100);
+    image(enemy,-40,-40,80,80);
     popMatrix();
     popMatrix();
     
