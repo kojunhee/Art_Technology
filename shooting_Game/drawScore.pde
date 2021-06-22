@@ -1,5 +1,5 @@
 void drawSCORE() {
-  textSize(24);
+  textSize(40);
   fill(#FC7FA1);
-  text("SCORE: "+SCORE, 10, 30);
+  text("SCORE: "+(SCORE+player.HP), 20, 50);
 }

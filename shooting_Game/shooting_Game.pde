@@ -4,7 +4,7 @@ PImage p1;
 PImage p2;
 PImage enemy;
 
-
+ParticleSystem ps;
 Minim minim;
 AudioPlayer music;
 AudioMetaData meta;
@@ -40,6 +40,7 @@ void setup() {
   minim = new Minim(this);
   music = minim.loadFile("Sci-Fi.mp3", 2048);
   meta = music.getMetaData();
+  ps = new ParticleSystem(new PVector(width/2, 200));
   
   
 }
@@ -53,6 +54,7 @@ void draw( ) {
     drawPlayer();
    
     if(GameStart==true){
+      drawSCORE();
       if(allBCK.size()==0){
       player.x = width/2-30;
       player.y = height/2;
@@ -64,7 +66,12 @@ void draw( ) {
       else if(STAGE_NUM==4){
         textSize(70);
         fill(#F6FF0D);
-        text("CONGRATULATIONS!", 50, height/2);     
+        text("CONGRATULATIONS!", 50, height/2); 
+        textSize(50);
+        fill(#F6FF0D);
+        text("Your Score :" + (SCORE+player.HP), 50, height/2+100); 
+        ps.addParticle();
+        ps.run();
       }
       MAX_BLK++;
         if(GAME_MODE==1){
