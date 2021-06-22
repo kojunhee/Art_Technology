@@ -161,10 +161,10 @@ void draw( ) {
 
 void addBLK() {
   float x, y;
-  int RecHP = 40;
-  int TriHP = 30;
-  int PenHP = 60;
-  int HexHP = 80;
+  int RecHP = 60;
+  int TriHP = 40;
+  int PenHP = 80;
+  int HexHP = 100;
   if(GAME_MODE==1){
     x=random(width);
     y=random(height);

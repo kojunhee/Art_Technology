@@ -7,11 +7,11 @@ abstract class Block {
   int HP;
 }
 
-//float Recx, Recy =0;
-int RecHP = 60;
-int TriHP = 40;
-int PenHP = 80;
-int HexHP = 100;
+
+final int TriHP = 40;
+final int RecHP = 60;
+final int PenHP = 80;
+final int HexHP = 100;
 
 class Triangle3 extends Block {
 
@@ -30,6 +30,7 @@ class Triangle3 extends Block {
   }
 
   void show() {
+    int position = int(map(this.HP, 0, TriHP, this.x, this.x+50));
     updateAngle();
     stroke(93);
     strokeWeight(2);
@@ -46,7 +47,6 @@ class Triangle3 extends Block {
     stroke(255);
     line(this.x, this.y, this.x+50, this.y);
     stroke(0);
-    int position = int(map(this.HP, 0, TriHP, this.x, this.x+50));
     line( this.x, this.y, position, this.y);
     popMatrix();
   }
@@ -86,11 +86,11 @@ class Rectangle4 extends Block {
     popMatrix();
     
     pushMatrix();
+    int position = int(map(this.HP, 0, RecHP, this.x, this.x+50));
     strokeWeight(10);
     stroke(255);
     line(this.x, this.y, this.x+50, this.y);
     stroke(0);
-    int position = int(map(this.HP, 0, RecHP, this.x, this.x+50));
     line( this.x, this.y, position, this.y);
     popMatrix();
     
@@ -130,11 +130,11 @@ class Pentagon5 extends Block {
     popMatrix();
     
     pushMatrix();
-    strokeWeight(10);
-    stroke(255,255,255);
-    line(this.x, this.y, this.x+50, this.y);
-    stroke(0,0,0);
     int position = int(map(this.HP, 0, PenHP, this.x, this.x+50));
+    strokeWeight(10);
+    stroke(255);
+    line(this.x, this.y, this.x+50, this.y);
+    stroke(0);
     line( this.x, this.y, position, this.y);
     popMatrix();
   }
@@ -170,11 +170,11 @@ class Hexagon6 extends Block {
     popMatrix();
     
     pushMatrix();
+    int position = int(map(this.HP, 0, HexHP, this.x, this.x+50));
     strokeWeight(10);
     stroke(255,255,255);
     line(this.x, this.y, this.x+50, this.y);
     stroke(0,0,0);
-    int position = int(map(this.HP, 0, HexHP, this.x, this.x+50));
     line( this.x, this.y, position, this.y);
     popMatrix();
   }
