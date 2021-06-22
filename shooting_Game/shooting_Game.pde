@@ -1,7 +1,8 @@
 import ddf.minim.*;
 
+PImage p1;
 PImage p2;
-PImage pika;
+PImage enemy;
 
 
 Minim minim;
@@ -32,8 +33,9 @@ void setup() {
   player = new Player(width/2-30, height/2, 30, 100, 1);
   player2 = new Player(width/2+30, height/2, 50, 1000, 2);
   
+  p1 = loadImage("player1.png");
   p2 = loadImage("player2.png");
-  pika = loadImage("pika.png");
+  enemy = loadImage("enemy.png");
   
   minim = new Minim(this);
   music = minim.loadFile("whatdoicallyou.mp3", 2048);

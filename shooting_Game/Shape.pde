@@ -31,16 +31,14 @@ class Rectangle4 extends Block {
 
   void show() {
     updateAngle();
-    fill(fillColor);
     stroke(93);
     strokeWeight(2);
-
     pushMatrix();
-
     translate(x, y);
-    rotate(angle);
-    rect(0, 0, WIDTH, WIDTH, 1);
-
+    pushMatrix();
+    tint(fillColor);
+    image(enemy,-25,-25,100,100);
+    popMatrix();
     popMatrix();
     
     pushMatrix();
@@ -76,20 +74,14 @@ class Triangle3 extends Block {
 
   void show() {
     updateAngle();
-    fill(fillColor);
     stroke(93);
     strokeWeight(2);
-
     pushMatrix();
-
     translate(x, y);
-    rotate(angle);
-    
     pushMatrix();
-    tint(255);
-    //image(pika,-25,-25,50,50);
+    tint(fillColor);
+    image(enemy,-25,-25,100,100);
     popMatrix();
-
     popMatrix();
     
     pushMatrix();
@@ -124,20 +116,14 @@ class Pentagon5 extends Block {
 
   void show() {
     updateAngle();
-    fill(fillColor);
     stroke(93);
     strokeWeight(2);
-
     pushMatrix();
-
     translate(x, y);
-    rotate(angle);
-    beginShape();
-    for (int i = 0; i < 5; i++) {
-      vertex(WIDTH*cos(TWO_PI/5*i), WIDTH*sin(TWO_PI/5*i));
-    }
-    endShape(CLOSE);
-
+    pushMatrix();
+    tint(fillColor);
+    image(enemy,-25,-25,100,100);
+    popMatrix();
     popMatrix();
     
     pushMatrix();
@@ -170,20 +156,14 @@ class Hexagon6 extends Block {
   }
   void show() {
     updateAngle();
-    fill(fillColor);
     stroke(93);
     strokeWeight(2);
-
     pushMatrix();
-
     translate(x, y);
-    rotate(angle);
-    beginShape();
-    for (int i = 0; i < 6; i++) {
-      vertex(WIDTH*cos(TWO_PI/6*i), WIDTH*sin(TWO_PI/6*i));
-    }
-    endShape(CLOSE);
-
+    pushMatrix();
+    tint(fillColor);
+    image(enemy,-25,-25,100,100);
+    popMatrix();
     popMatrix();
     
     pushMatrix();

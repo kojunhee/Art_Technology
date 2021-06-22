@@ -48,10 +48,8 @@ class Player extends Base {
       
       pushMatrix();
       rotate(angle);
-      fill(BATTERY_COLOR);
-      rect(test, 0-r/4, r, r/2, 1);
-      fill(FILL_COLOR);
-      ellipse(0, 0, r, r);
+      tint(FILL_COLOR);
+      image(p1,0,0,r*2,r*2);
       popMatrix();
       
       pushMatrix();
