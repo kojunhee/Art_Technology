@@ -65,7 +65,8 @@ class Attack {
       
       Plx=player2.x;
       Ply=player2.y;
-      if ( CheckMan4(Bux, Buy, Plx+30, Ply+30)) {
+      if ( CheckMan4(Bux, Buy, Plx+30, Ply+30) && Attacks.get(i).fillColor == enemy_COLOR) {
+        SCORE = SCORE+5;
         Attacks.remove(i);
       }
     }

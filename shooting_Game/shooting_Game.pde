@@ -329,19 +329,19 @@ void mousePressed(){
   if(625<mouseX && mouseX<675 && 525<mouseY && mouseY<575){
     music.pause();
     music = minim.loadFile("Sci-Fi.mp3", 2048);
-    music.play();
+    music.loop();
     meta = music.getMetaData();
   }
   if(675<mouseX && mouseX<725 && 525<mouseY && mouseY<575){
     music.pause();
     music = minim.loadFile("The great battle.mp3", 2048);
-    music.play();
+    music.loop();
     meta = music.getMetaData();
   }
   if(725<mouseX && mouseX<775 && 525<mouseY && mouseY<575){
     music.pause();
     music = minim.loadFile("Battle Metal.mp3", 2048);
-    music.play();
+    music.loop();
     meta = music.getMetaData();
   }
   
